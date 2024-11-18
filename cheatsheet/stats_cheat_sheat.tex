@@ -1,0 +1,50 @@
+\documentclass[a4]{article} 
+\usepackage[a4paper,margin=1in]{geometry} %% Margins
+\usepackage{amsmath}  %% Math
+\usepackage{xcolor}   %% Colors
+\usepackage{cleveref}
+
+\newcommand\xb{\bar x}
+\newcommand\Xb{\bar X}
+\newcommand\oover[2]{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily #2}}}{#1}}}
+
+\newgeometry{top=0.5in} 
+
+\begin{document}
+
+\title{\textbf{BIOE70037 Stats Cheat Sheet}}
+\author{}
+\maketitle
+
+\section{Population}
+
+\begin{align}
+	\textbf{Population Mean:}               &  & \mu             & = \frac 1 N \sum_{i=1}^{N} x_i                                         \\
+	\textbf{Population Variance:}           &  & \sigma^2        & = \frac 1 N \sum_{i=1}^{N} (x_i - \mu)^2 \label{eq:sigma2}             \\
+	\textbf{Population standard deviation:} &  & \sigma          & = \sqrt{\sigma^2}                                                      \\
+	\textbf{Variance of the mean:}          &  & \text{Var}(\Xb) & = \frac {\sigma^2} n \label{eq:varXb}                                  \\
+	\color{gray} \textbf{Population size:}  &  & \color{gray} N  &
+	\intertext{\section{Sample}}
+	\textbf{Sample Mean}:                   &  & \xb             & = \frac 1 n \sum_{i=1}^{n} x_i                                         \\
+	\textbf{Sample Variance (\textcolor{blue}{Bessel's}):}
+	                                        &  & s^2             & = \frac 1 {\color{blue}n-1} \sum_{i=1}^{n} (x_i - \xb)^2 \label{eq:s2} \\ \textbf{Standard deviation:}                           &  & s               & = \sqrt{s^2}                                                       \\
+	\textbf{Variance of the sample mean:}   &  & \text{Var}(\xb) & = \frac {s^2} n  \label{eq:varxb}                                      \\
+	\textbf{Sample Standard Error:}         &  & SE              & = \frac {\sigma} {\sqrt{n}} \oover{\simeq}{est} \frac s {\sqrt{n}}     \\
+	\textbf{z-value:}                       &  & z               & = \frac{x - \xb}{s}                                                    \\
+	\textbf{Confidence Interval:}           &  & CI              & = \xb \pm z \cdot SE                                                   \\
+	\color{gray} \textbf{Sample size:}      &  & \color{gray} n  &
+\end{align}
+
+\section{Notes}
+\begin{enumerate}
+	\item \textbf{\cref{eq:sigma2} $N$ vs. \cref{eq:s2} $n-1$}
+
+	      Bessel's correction should only be used when dealing with sample, not populations, hence only in \cref{eq:s2}
+	\item \textbf{Difference between \cref{eq:varXb} and \cref{eq:varxb}:}
+
+	      \Cref{eq:varXb} gives the variance of the mean as a random variable, meaning the variance of a \textit{random} sample.
+
+	      \Cref{eq:varxb} gives the variance of the mean of a \textit{particular} sample.
+\end{enumerate}
+
+\end{document}
