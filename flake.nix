@@ -12,6 +12,7 @@
         buildInputs = with pkgs.python312Packages; [
           pkgs.jupyter-all
           scipy
+          seaborn
           openpyxl
           python
           numpy
